@@ -42,6 +42,8 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>7.4.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+
 
 	</dependencies>
 

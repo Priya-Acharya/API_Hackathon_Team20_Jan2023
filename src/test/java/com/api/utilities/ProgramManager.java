@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,7 +27,7 @@ public class ProgramManager {
 	public static Program createProgram(String name, String desc, String status) {
 		JSONObject program = new JSONObject();//{}
 		
-		program.put("programName", name);
+		program.put("programName", name + (new Random().nextInt()));
 		program.put("programDescription", desc);
 		program.put("programStatus", status);
 		
@@ -53,7 +54,7 @@ public class ProgramManager {
 
 		assertEquals(resp.statusCode(),201);
 		
-		String respString = 		resp.body().toString();
+		String respString = resp.body().toString();
 		
 		logger.debug("Got body {} from post req", respString);
 

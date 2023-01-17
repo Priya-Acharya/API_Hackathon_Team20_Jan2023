@@ -66,7 +66,8 @@ public class UpdateProgram {
 		responsebody.then()//
 				.assertThat()//
 				.statusCode(200)//
-				.body("programId", Matchers.equalTo(program.getProgramId())).body("programName", Matchers.equalTo(program.getProgramName()))
+				.body("programId", Matchers.equalTo(program.getProgramId()))//
+				.body("programName", Matchers.equalTo(program.getProgramName()))
 				.body("programDescription", Matchers.equalTo(desc))
 				.body("programStatus", Matchers.equalTo(status))//
 				.log().all();

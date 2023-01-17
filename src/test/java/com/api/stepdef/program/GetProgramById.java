@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.hamcrest.Matchers;
 
 import com.api.utilities.ConfigProperties;
+import com.api.utilities.Program;
 import com.api.utilities.ProgramManager;
 
 import io.cucumber.java.AfterAll;
@@ -17,10 +18,10 @@ import io.restassured.response.Response;
 
 public class GetProgramById{
 	
-	private static int pId;
 	private Response vResp;
 	private static Logger logger = LogManager.getLogger(GetProgramById.class);
-	
+	private static Program program;
+
 	@BeforeAll
 	public static void setup() {
 		RestAssured.baseURI = ConfigProperties.getBaseUrl();
@@ -28,12 +29,12 @@ public class GetProgramById{
 	
 	@Given("Program with name {string}, decription {string} and status {string} exists")
 	public void setupAProgram(String name, String desc, String status) {
-		pId = ProgramManager.createProgram(name, desc, status).getProgramId();
+		program = ProgramManager.createProgram(name, desc, status);
 	}
 
 	@When("The user makes a GET request for the program")
 	public void readProgram() {
-	    vResp = RestAssured.given().when().get(ConfigProperties.getProgramsPath()+pId);
+	    vResp = RestAssured.given().when().get(ConfigProperties.getProgramsPath()+program.getProgramId());
 	}
 
 	@Then("The returned program has name as {string}, decription as {string} and status as {string}")
@@ -41,8 +42,8 @@ public class GetProgramById{
 	    vResp.then()//
 	    .assertThat()//
 	    .statusCode(200)//
-	    .body("programId", Matchers.equalTo(pId))
-	    .body("programName", Matchers.equalTo(name))
+	    .body("programId", Matchers.equalTo(program.getProgramId()))
+	    .body("programName", Matchers.equalTo(program.getProgramName()))
 	    .body("programDescription", Matchers.equalTo(description))
 	    .body("programStatus", Matchers.equalTo(status))//
 	    .log().all()
@@ -51,7 +52,7 @@ public class GetProgramById{
 
 	@AfterAll
 	public static void deleteProg() {
-		ProgramManager.deleteProgram(pId);
+		ProgramManager.deleteProgram(program.getProgramId());
 	}
 
 }

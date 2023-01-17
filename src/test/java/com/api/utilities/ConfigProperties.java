@@ -62,5 +62,15 @@ public class ConfigProperties {
 
 	}
 
-
+	public static String getBatchNameUrlPath() {
+		return getProperty("batch.batchnameurlpath");
+	}
+	
+	public static String getBatchByProgramIDUrlPath() {
+		return getProperty("batch.programidurlpath");
+	}
+	
+	public static String getDeleteBatchPath() {
+		return getProperty("batch.delete");
+	}
 }

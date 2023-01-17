@@ -10,8 +10,8 @@ import java.util.Map;
 import org.json.JSONObject;
 import org.testng.Assert;
 
-import com.api.util.ConfigProperties;
-import com.api.util.ExcelUtil;
+import com.api.utilities.ConfigProperties;
+import com.api.utilities.ExcelUtil;
 
 import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
@@ -56,8 +56,7 @@ public class CreateBatch {
 		map.put("batchNoOfClasses", NoOfClasses);
 		map.put("batchStatus", status);
 		map.put("programId", pId);
-		// {"batchName":"Jan23-CRUD Interfacing
-		// Ninjas-SDET-20-1673908517901","batchNoOfClasses":"Active","batchDescription":"Python","batchStatus":"12","programId":"1001"}
+		
 		ObjectMapper mapper = new ObjectMapper();
 		String batchBody = null;
 		try {
@@ -75,8 +74,7 @@ public class CreateBatch {
 	@When("POST request is made with Endpoint batches")
 	public void post_request_is_made_with_endpoint_batches() {
 
-		response = req.when().post("batches").then().log().all().extract();
-		// response = RestAssured.given().post("batches");
+		response = req.when().post(ConfigProperties.createBatchPath()).then().log().all().extract();
 	}
 
 	@Then("User validate Status and response body with batchID, batchName, batchDescription, batchStatus, batchNoOfClasses, programId, programName")
@@ -100,8 +98,6 @@ public class CreateBatch {
 		map.put("batchNoOfClasses", NoOfClasses);
 		map.put("batchStatus", status);
 		map.put("programId", pId);
-		// {"batchName":"Jan23-CRUD Interfacing
-		// Ninjas-SDET-20-1673908517901","batchNoOfClasses":"Active","batchDescription":"Python","batchStatus":"12","programId":"1001"}
 		ObjectMapper mapper = new ObjectMapper();
 		String batchBody = null;
 		try {
@@ -119,7 +115,7 @@ public class CreateBatch {
 
 	@When("POST request is made with Endpoint batches forsecondbatch")
 	public void post_request_is_made_with_endpoint_batches_forsecondbatch() {
-		response = req.when().post("batches").then().log().all().extract();
+		response = req.when().post(ConfigProperties.createBatchPath()).then().log().all().extract();
 	}
 
 	@Then("User validate Status and response body with batchID, batchName, batchDescription, batchStatus, batchNoOfClasses, programId, programName forsecondbatch")

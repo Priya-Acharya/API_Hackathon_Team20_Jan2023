@@ -5,7 +5,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>API_Hackathon_Team20_Jan2023</name>
 	<dependencies>
-		<!--test-->
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>

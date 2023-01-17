@@ -1,4 +1,4 @@
-package com.api.util;
+package com.api.utilities;
 
 import static org.testng.Assert.assertEquals;
 

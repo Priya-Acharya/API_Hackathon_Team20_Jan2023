@@ -10,6 +10,7 @@ import java.util.Map;
 import org.json.JSONObject;
 import org.testng.Assert;
 
+import com.api.util.ConfigProperties;
 import com.api.util.ExcelUtil;
 
 import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingException;
@@ -35,8 +36,8 @@ public class CreateBatch {
 
 	@BeforeAll
 	public static void setup() {
-		RestAssured.baseURI = "https://lms-backend-service.herokuapp.com/lms/";
-
+		
+		RestAssured.baseURI = ConfigProperties.getBaseUrl();
 	}
 
 	public ExcelUtil utility = new ExcelUtil(new File(".").getAbsolutePath() + "/src/test/resources/Data.xlsx");
@@ -122,7 +123,8 @@ public class CreateBatch {
 	}
 
 	@Then("User validate Status and response body with batchID, batchName, batchDescription, batchStatus, batchNoOfClasses, programId, programName forsecondbatch")
-	public void user_validate_status_and_response_body_with_batch_id_batch_name_batch_description_batch_status_batch_no_of_classes_program_id_program_name_forsecondbatch() {		int statusCode = response.statusCode();
+	public void user_validate_status_and_response_body_with_batch_id_batch_name_batch_description_batch_status_batch_no_of_classes_program_id_program_name_forsecondbatch() {		
+		int statusCode = response.statusCode();
 		System.out.println("Status Code is : " + statusCode);
 		Assert.assertEquals(statusCode, 201);
 

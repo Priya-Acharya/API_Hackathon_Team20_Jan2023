@@ -1,1 +1,8 @@
 /target/
+.classpath
+.settings/
+allure-results/
+*.log
+test-output/
+
+.classpath

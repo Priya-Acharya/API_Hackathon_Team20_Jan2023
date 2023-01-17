@@ -49,5 +49,13 @@ public class ConfigProperties {
 		return getProperty("program.updatebyname");
 
 	}
+	public static String getBatchbyIdPath() {
+		return getProperty("batch.getbatchid");
+
+	}
+	public static String getAllprogramsPath() {
+		return getProperty("program.getallprograms");
+
+	}
 
 }

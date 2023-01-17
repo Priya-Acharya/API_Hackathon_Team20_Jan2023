@@ -1,8 +1,10 @@
-package com.api.stepDefBatch;
+package com.api.stepdef.batch;
 
 import static io.restassured.RestAssured.given;
 
 import org.testng.Assert;
+
+import com.api.utilities.ConfigProperties;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,7 +16,7 @@ public class GetAllBatches {
 	Response response;
 	@Given("User request for a service with base URL  along with metadata information in header")
 	public void user_request_for_a_service_with_base_url_along_with_metadata_information_in_header() {
-		 RestAssured.baseURI = "https://lms-backend-service.herokuapp.com/lms";
+		RestAssured.baseURI = ConfigProperties.getBaseUrl();
 
 	}
 

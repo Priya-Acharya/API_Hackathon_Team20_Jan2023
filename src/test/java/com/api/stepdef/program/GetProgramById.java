@@ -4,8 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hamcrest.Matchers;
 
-import com.api.util.ConfigProperties;
-import com.api.util.ProgramManager;
+import com.api.utilities.ConfigProperties;
+import com.api.utilities.ProgramManager;
 
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;

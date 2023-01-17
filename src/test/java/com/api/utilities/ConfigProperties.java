@@ -1,4 +1,4 @@
-package com.api.util;
+package com.api.utilities;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -49,5 +49,18 @@ public class ConfigProperties {
 		return getProperty("program.updatebyname");
 
 	}
+	public static String getBatchbyIdPath() {
+		return getProperty("batch.getbatchid");
+
+	}
+	public static String getAllprogramsPath() {
+		return getProperty("program.getallprograms");
+
+	}
+	public static String createBatchPath() {
+		return getProperty("batch.createbatch");
+
+	}
+
 
 }

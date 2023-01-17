@@ -4,8 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hamcrest.Matchers;
 
-import com.api.util.ConfigProperties;
-import com.api.util.ProgramManager;
+import com.api.utilities.ConfigProperties;
+import com.api.utilities.ProgramManager;
 
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
@@ -33,7 +33,7 @@ public class GetProgramById{
 
 	@When("The user makes a GET request for the program")
 	public void readProgram() {
-	    vResp = RestAssured.given().get(ConfigProperties.getProgramsPath()+pId);
+	    vResp = RestAssured.given().when().get(ConfigProperties.getProgramsPath()+pId);
 	}
 
 	@Then("The returned program has name as {string}, decription as {string} and status as {string}")

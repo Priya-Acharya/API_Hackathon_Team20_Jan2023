@@ -7,9 +7,9 @@ import org.apache.logging.log4j.Logger;
 import org.hamcrest.Matchers;
 import org.json.JSONObject;
 
-import com.api.util.ConfigProperties;
-import com.api.util.Program;
-import com.api.util.ProgramManager;
+import com.api.utilities.ConfigProperties;
+import com.api.utilities.Program;
+import com.api.utilities.ProgramManager;
 
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
@@ -32,8 +32,8 @@ public class UpdateProgram {
 	@BeforeAll
 	public static void setup() {
 		RestAssured.baseURI = ConfigProperties.getBaseUrl();
-		program = ProgramManager.createProgram(ConfigProperties.getProperty("programname"),
-				ConfigProperties.getProperty("programdesc"), ConfigProperties.getProperty("programstatus"));
+		program = ProgramManager.createProgram(ConfigProperties.getProperty("program.name"),
+				ConfigProperties.getProperty("program.desc"), ConfigProperties.getProperty("program.status"));
 	}
 
 	@Given("A Program exists")
@@ -42,7 +42,7 @@ public class UpdateProgram {
 		//RestAssured.given().get(ConfigProperties.getProgramsPath()+program.getProgramId()).then().statusCode(200);
 	}
 
-	@When("The user makes a PUT request for the program to update {string}  and {string}")
+	@When("The user makes a PUT request for the program to update {string} and {string}")
 	public void the_user_makes_a_put_request_for_the_program_to_update_and(String desc, String status) {
 		
 		logger.debug("PUT executing..");

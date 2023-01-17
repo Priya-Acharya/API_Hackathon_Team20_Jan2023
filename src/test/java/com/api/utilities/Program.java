@@ -9,19 +9,19 @@ public class Program {
 	public String creationTime;
 	public String lastModTime;
 	
-	public Program(int programId, String programName, String programDescription, String programStatus,
-			String creationTime, String lastModTime) {
-		this.programId = programId;
-		this.programName = programName;
-		this.programDescription = programDescription;
-		this.programStatus = programStatus;
-		this.creationTime = creationTime;
-		this.lastModTime = lastModTime;
-	}
-	
-	public Program() {
-		
-	}
+//	public Program(int programId, String programName, String programDescription, String programStatus,
+//			String creationTime, String lastModTime) {
+//		this.programId = programId;
+//		this.programName = programName;
+//		this.programDescription = programDescription;
+//		this.programStatus = programStatus;
+//		this.creationTime = creationTime;
+//		this.lastModTime = lastModTime;
+//	}
+//	
+//	public Program() {
+//		
+//	}
 	public int getProgramId() {
 		return programId;
 	}

@@ -57,5 +57,10 @@ public class ConfigProperties {
 		return getProperty("program.getallprograms");
 
 	}
+	public static String createBatchPath() {
+		return getProperty("program.batch.createbatch");
+
+	}
+
 
 }

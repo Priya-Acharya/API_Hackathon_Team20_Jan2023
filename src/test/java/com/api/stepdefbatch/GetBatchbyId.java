@@ -10,8 +10,8 @@ import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.testng.Assert;
 
-import com.api.util.ConfigProperties;
-import com.api.util.ExcelUtil;
+import com.api.utilities.ConfigProperties;
+import com.api.utilities.ExcelUtil;
 
 import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
@@ -43,7 +43,6 @@ public class GetBatchbyId {
 	}
 
 	public ExcelUtil utility = new ExcelUtil(new File(".").getAbsolutePath() + "/src/test/resources/Data.xlsx");
-	private String path;
 
 	@Given("uSer make a service request with a Base URL")
 	public void u_ser_make_a_service_request_with_a_base_url() {
@@ -66,10 +65,10 @@ public class GetBatchbyId {
 			batchBody = mapper.writeValueAsString(map);
 			req = given().baseUri("https://lms-backend-service.herokuapp.com/lms/")
 					.headers("Content-Type", "application/json").body(batchBody);
-			response = req.when().post("batches").then().log().all().extract();
-			String respString = response.body().asString();
+			response = req.when().post(ConfigProperties.createBatchPath()).then().log().all().extract();
+			String resString = response.body().asString();
 			//System.out.println("Response Body: " + batchBody);
-			JSONObject respJson = new JSONObject(respString);
+			JSONObject respJson = new JSONObject(resString);
 			bId = respJson.getInt("batchId");
 
 		} catch (JsonProcessingException e) {

@@ -1,8 +1,8 @@
-package com.api.stepdef.program;
+package com.api.stepdef.program2;
 
 import org.testng.Assert;
 
-import com.api.util.ConfigProperties;
+import com.api.utilities.ConfigProperties;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

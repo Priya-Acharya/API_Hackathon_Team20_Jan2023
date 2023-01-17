@@ -8,7 +8,7 @@ Feature: Update Program by Program ID and Program name
    	
   @tag2
     Scenario Outline: Update Program by Program Id
-      When The user makes a PUT request for the program to update "<desc>"  and "<progstatus>"
+      When The user makes a PUT request for the program to update "<desc>" and "<progstatus>"
       Then Validate the status code and the updated program details as "<desc>" and "<progstatus>"
 
 		 Examples: 

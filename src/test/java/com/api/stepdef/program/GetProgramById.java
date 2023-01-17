@@ -33,7 +33,7 @@ public class GetProgramById{
 
 	@When("The user makes a GET request for the program")
 	public void readProgram() {
-	    vResp = RestAssured.given().get(ConfigProperties.getProgramsPath()+pId);
+	    vResp = RestAssured.given().when().get(ConfigProperties.getProgramsPath()+pId);
 	}
 
 	@Then("The returned program has name as {string}, decription as {string} and status as {string}")

@@ -58,7 +58,7 @@ public class ConfigProperties {
 
 	}
 	public static String createBatchPath() {
-		return getProperty("program.batch.createbatch");
+		return getProperty("batch.createbatch");
 
 	}
 

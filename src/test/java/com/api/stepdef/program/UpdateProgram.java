@@ -33,7 +33,7 @@ public class UpdateProgram {
 	public static void setup() {
 		RestAssured.baseURI = ConfigProperties.getBaseUrl();
 		program = ProgramManager.createProgram(ConfigProperties.getProperty("program.name"),
-				ConfigProperties.getProperty("program.desc"), ConfigProperties.getProperty("programStatus"));
+				ConfigProperties.getProperty("program.desc"), ConfigProperties.getProperty("program.status"));
 	}
 
 	@Given("A Program exists")
@@ -42,7 +42,7 @@ public class UpdateProgram {
 		//RestAssured.given().get(ConfigProperties.getProgramsPath()+program.getProgramId()).then().statusCode(200);
 	}
 
-	@When("The user makes a PUT request for the program to update {string}  and {string}")
+	@When("The user makes a PUT request for the program to update {string} and {string}")
 	public void the_user_makes_a_put_request_for_the_program_to_update_and(String desc, String status) {
 		
 		logger.debug("PUT executing..");

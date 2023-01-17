@@ -1,4 +1,4 @@
-package com.api.stepdefbatch;
+package com.api.stepdef.batch;
 
 import static io.restassured.RestAssured.given;
 
@@ -78,8 +78,8 @@ public class GetBatchbyId {
 
 	}
 
-	@When("POST Request is made by the User with an endpoint batches slash {string}")
-	public void post_request_is_made_by_the_user_with_an_endpoint_batches_slash(String string) {
+	@When("GET Request is made by the User with an endpoint batches slash {string}")
+	public void get_request_is_made_by_the_user_with_an_endpoint_batches_slash(String string) {
 
 		getResponse = RestAssured.given().get(ConfigProperties.getBatchbyIdPath() + bId);
 	}

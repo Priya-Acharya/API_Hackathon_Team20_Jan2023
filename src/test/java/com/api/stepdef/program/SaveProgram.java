@@ -1,10 +1,10 @@
-package com.api.stepDefProgram;
+package com.api.stepdef.program;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class saveprogram {
+public class SaveProgram {
 	
 	@Given("User make a service request with a Base URL request alongwith metadata information in header as Application Json")
 	public void user_make_a_service_request_with_a_base_url_request_alongwith_metadata_information_in_header_as_application_json() {

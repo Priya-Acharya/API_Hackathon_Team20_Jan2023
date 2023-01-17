@@ -1,8 +1,4 @@
 /target/
-.classpath
-.settings/
-allure-results/
-*.log
-test-output/
-
-.classpath
+/test-output/
+/lmsapi.log
+/allure-results/
